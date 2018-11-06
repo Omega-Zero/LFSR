@@ -26,7 +26,7 @@ public class DESinputs {
 		int XOR = new XORprogram().XORtruth(parameterOne, parameterTwo, 0, 1);
 
 
-//gets the return the user inputed params
+//gets the user inputed params
 	public int getparamOne() {
 		return parameterOne;
 	}
