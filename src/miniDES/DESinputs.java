@@ -23,9 +23,10 @@ public class DESinputs {
 			System.out.println("Second parameter set to "+ parameterTwo);
 			
 		}
-		int XOR = new XORprogram().XORtruth(parameterOne, parameterTwo);
+		int XOR = new XORprogram().XORtruth(parameterOne, parameterTwo, 0, 1);
 
-		
+
+//gets the return the user inputed params
 	public int getparamOne() {
 		return parameterOne;
 	}
