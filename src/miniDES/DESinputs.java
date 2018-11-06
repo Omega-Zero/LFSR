@@ -24,4 +24,14 @@ public class DESinputs {
 			
 		}
 		int XOR = new XORprogram().XORtruth(parameterOne, parameterTwo);
+
+		
+	public int getparamOne() {
+		return parameterOne;
 	}
+	
+	public int getparamTwo() {
+		return parameterTwo;
+	}
+	
+}
