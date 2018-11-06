@@ -8,6 +8,9 @@ public class DESinputs {
 	public int parameterOne;
 	public int parameterTwo;
 	
+	
+	
+	
 	public static void main(String [] args){
 
 
@@ -23,8 +26,6 @@ public class DESinputs {
 			System.out.println("Second parameter set to "+ parameterTwo);
 			
 		}
-		int XOR = new XORprogram().XORtruth(parameterOne, parameterTwo, 0, 1);
-
 
 //gets the user inputed params
 	public int getparamOne() {
