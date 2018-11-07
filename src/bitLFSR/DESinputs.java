@@ -1,5 +1,5 @@
 												//Jeffrey Marple Oct 2018//
-package miniDES;
+package bitLFSR;
 
 import java.util.Scanner;
 

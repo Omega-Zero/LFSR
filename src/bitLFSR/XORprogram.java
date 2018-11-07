@@ -1,11 +1,11 @@
-package miniDES;
+package bitLFSR;
 
 
 public class XORprogram{
-	int paramOne = new DESinputs().getparamOne();
-	int paramTwo = new DESinputs().getparamTwo();
+	static int paramOne = new inputsLFSR().getparamOne();
+	static int paramTwo = new inputsLFSR().getparamTwo();
 
-	public static int XORtruth (int paramOne, int paramTwo, int bitOne , int bitTwo) {
+	public static int XORtruth (int bitOne , int bitTwo) {
 	
 		int result;
 //Test to make sure bits are valid
@@ -26,5 +26,9 @@ public class XORprogram{
 		}
 		return result;
 	}
-	
+	public static void main (String[] args) {
+		int[] bitArray;
+		bitArray = new int[10000];
+		XORtruth(bitArray[paramOne], bitArray[paramTwo]);
+}
 }
