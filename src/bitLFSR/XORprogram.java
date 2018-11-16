@@ -26,9 +26,12 @@ public class XORprogram{
 		}
 		return result;
 	}
+	
 	public static void main (String[] args) {
 		int[] bitArray;
 		bitArray = new int[10000];
 		XORtruth(bitArray[paramOne], bitArray[paramTwo]);
-}
+	}
+
+
 }
