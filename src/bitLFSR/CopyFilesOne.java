@@ -39,5 +39,8 @@ public class CopyFilesOne {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+        int[] XORbitArray = {1, 1, 0, 0};
+        XORbitArray = new int[10000]; 
+        }
     }
-}
+    
