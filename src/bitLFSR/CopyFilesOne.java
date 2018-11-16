@@ -9,13 +9,12 @@ import java.io.*;
 public class CopyFilesOne {
  
     public static void main(String[] args) {
-        //if (args.length < 2) {
-        //    System.out.println("Please provide input and output files");
-        //    System.exit(0);
-        //}
+        if (args.length < 2) {
+            System.out.println("Please provide input and output files");
+            System.exit(0);
+        }
  
-        String inputFile = "C:\\Users\\Dell User\\Documents\\binaryInput.bin"; //args[0];
-        //String outputFile = args[1];
+        String inputFile = "C:\\Users\\Dell User\\Documents\\binaryInput.bin"; 
  
  
         try (
@@ -33,7 +32,6 @@ public class CopyFilesOne {
             	System.out.println(Integer.toBinaryString(allBytes[i]));
             }
             
- 
             //outputStream.write(allBytes);
  
         } catch (IOException ex) {
