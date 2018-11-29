@@ -15,6 +15,10 @@ public class inputsLFSR {
 
 
 			Scanner userInputs = new Scanner(System.in);
+//Select size of LFSR
+			System.out.println("Select size of LFSR");
+			int LFSRsize = userInputs.nextInt();
+			System.out.println("Array size set to " + LFSRsize);
 //First param Input			
 			System.out.println("Select first LFSR parameter");
 			int parameterOne = userInputs.nextInt();
@@ -24,7 +28,6 @@ public class inputsLFSR {
 			int parameterTwo = userInputs.nextInt();
 			userInputs.close();
 			System.out.println("Second parameter set to "+ parameterTwo);
-			
 		}
 
 //gets the user inputed params
