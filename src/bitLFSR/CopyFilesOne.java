@@ -1,7 +1,6 @@
 package bitLFSR;
 
 import java.io.*;
-import java.util.ArrayList;
 /**
  * Copy one file to another using low level byte streams,
  * read and write a whole.at once.
