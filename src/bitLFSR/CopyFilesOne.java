@@ -15,10 +15,7 @@ public class CopyFilesOne {
         }
 
         String inputFile = "C:\\Users\\Dell User\\Documents\\binaryInput.bin"; 
-//        byte bits;
-//        bits = 5;
-//        //System.out.println(bits);
-// 
+
         try (
             InputStream inputStream = new FileInputStream(inputFile);
             //OutputStream outputStream = new FileOutputStream(outputFile);
@@ -31,13 +28,13 @@ public class CopyFilesOne {
             
             inputStream.read(allBytes);
             
-            byte bitmask = 0x000F;
+            byte bitmask = 0x0001;
             
             
             for (int i = 0; i < fileSize;) {
             		//System.out.println(Integer.toBinaryString(allBytes[i]));
             		System.out.println(allBytes[i]&bitmask);
-            	    //bitmask = (byte) (bitmask >> 1);
+            	    bitmask = (byte) (bitmask >> 1);
             		
             		i++;
             		
