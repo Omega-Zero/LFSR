@@ -16,7 +16,7 @@ public class inputsLFSR {
 
 	public static void main(String [] args){
 			int[] LFSRarray;
-			int[] finalCipher = new int[1000000];
+			int[] finalCipher;
 			
 			Random random = new Random();
 			Scanner userInputs = new Scanner(System.in);
@@ -35,12 +35,13 @@ public class inputsLFSR {
 			
 			for (int i = 0; i < LFSRsize; i++){
 				LFSRarray[i] = random.nextInt(2);
-				}
+			}
 			System.out.println("Shift Register Created: ");
 			for (int j = 0; j < LFSRsize; j++) {
 				System.out.println(LFSRarray[j]);
-				}
 			}
+
+//Getting Params
 //First param Input			
 			System.out.println("Select first LFSR parameter");
 			int parameterOne = userInputs.nextInt();
@@ -65,34 +66,51 @@ public class inputsLFSR {
 		        //OutputStream outputStream = new FileOutputStream(outputFile);
 		    ) {
 
-		        long fileSize = new File(inputFile).length();
+		        int fileSize = (int) new File(inputFile).length();
 
 		        byte[] allBytes = new byte[(int) fileSize];
 
 		        
 		        inputStream.read(allBytes);
+		        finalCipher = new int[fileSize];
 		        
-		        byte bitmask = 0x00000001;
-		        
-		        
-		        for (int i = 0; i < fileSize;) {
+		        //XOR
+		        for (int i = 0; i < fileSize; i++) {
 		        		//System.out.println(Integer.toBinaryString(allBytes[i]));
+		        		byte bitmask = 0x00000001;
 		        	    for(int j=0; j < 7; j++) {
-		        	    	//System.out.println(allBytes[i]&bitmask);
-		        	    	int encryptedBit= parameterTwo ^ parameterOne;
-		        	    	finalCipher[i] = encryptedBit;
-		        	    	bitmask = (byte) (bitmask >> 1);
+		        	    	
+		        	    	int andBytes = allBytes[i]&bitmask;
+		        	    	//System.out.println(andBytes);
+		        	    	
+		        	    	int encryptedBit= LFSRarray[parameterTwo] ^ LFSRarray[parameterOne];
+		        	    	
+		        	    	// the line  below is placing the correct bit in finalCipher[i]
+		        	    	// but it should add it as a bit not overwrite the entire value
+		        	    	finalCipher[i] = finalCipher[i] << 1;
+		        	    	
+		        	    	finalCipher[i] += andBytes ^ LFSRarray[LFSRarray.length - 1];
+		        	    	allBytes[i] = (byte) (allBytes[i] >>  1);
+		        	    	
+		        	    	for(int k = LFSRsize - 1; k > 0; k--) {
+		        	    		LFSRarray[k] = LFSRarray[k-1];
+		        	    		
+		        	    	}
+		        	    	LFSRarray[0] = encryptedBit; 
 		        	    }
-		        		i++;
 		        	}
-		        for(int x=0; x<finalCipher.length; x++)
+
+		   //outputs final encrypted array
+		        for(int x=0; x<finalCipher.length; x++) {
 		        	System.out.println(finalCipher[x]);
 		        	//outputStream.write(allBytes);
-
+		        }
+		        
 		    } catch (IOException ex) {
 		        ex.printStackTrace();
 		    }
 	   }
+	}
 //	
 //
 //gets the user inputed params
